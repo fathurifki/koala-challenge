@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Switch, Router, Redirect} from 'react-router-dom';
+import history from './utils/history';
+import AppRoutes from './routes';
+import CustomRoutes from './components/routes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-gray-200">
+      <Router history={history}>
+        <Switch>
+          {
+            AppRoutes.map(({ path, component }, key) =>
+              <CustomRoutes
+                exact
+                path={path}
+                component={component}
+                key={key}
+              />
+            )
+          }
+          <Redirect from="/" to="/palindrome" />
+        </Switch>
+      </Router>
     </div>
   );
 }
