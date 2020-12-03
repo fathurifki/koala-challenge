@@ -16,7 +16,7 @@ const CurrencyComponent = () => {
     return (
         <div className="flex flex-col justify-center p-4 mt-10 ">
             <span className="mb-2 text-lg font-medium">Input Number</span>
-            <form className="flex flex-col" onSubmit={() => splitNumber()}>
+            <div className="flex flex-col">
                 <input value={convert(number)} type="text" onChange={(e) => handleInput(e)} name="number" className="shadow appearance-none border rounded py-2 px-3 text-grey-darker"></input>
                 <div className="text-center p-4 font-medium text-lg text-red-800">
                     {
@@ -31,7 +31,7 @@ const CurrencyComponent = () => {
                 >
                     Execute
                 </button>
-            </form>
+            </div>
             <div className="text-center p-4 font-medium text-lg">
                 <span>Result: </span>
                 <p>{isNaN(number) ? "" : result}</p>
