@@ -54,16 +54,15 @@ export const CurrencyController = ({ children }) => {
     }
 
 
-
     const splitNumber = () => {
         let temp = []
-        let temp2 = state.number
+        let value = state.number
         const keyValue = [100000, 50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100]
         keyValue.forEach(item => {
-            if (temp2 >= item) {
-                let sisa = temp2
-                temp2 = temp2 % item
-                let amount = (sisa - temp2) / item
+            if (value >= item) {
+                let resResult = value
+                value = value % item
+                let amount = (resResult - value) / item
                 let nominal = item
                 if (nominal >= 1000) {
                     nominal = item.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, '.')
@@ -76,7 +75,7 @@ export const CurrencyController = ({ children }) => {
         temp.forEach(val => {
             result = result + `${val.nominal}(x${val.amount}), `
         })
-        result = result + `sisa ${temp2},`
+        result = result + `sisa ${value},`
         setState((prevState) => ({
             ...prevState,
             result: result

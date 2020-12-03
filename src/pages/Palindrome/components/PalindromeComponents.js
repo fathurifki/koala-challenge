@@ -20,7 +20,7 @@ const PalindromeComponents = () => {
         <div className="flex flex-col justify-center p-4 mt-10">
             <span className="mb-2 text-lg font-medium">Input Words</span>
             <div className="flex flex-col" >
-                <input type="text" name="words" onChange={(e) => handleInput(e)} className="shadow appearance-none border rounded py-2 px-3 text-grey-darker"></input>
+                <input value={words} autoComplete="off" type="text" name="words" onChange={(e) => handleInput(e)} className="shadow appearance-none border rounded py-2 px-3 text-grey-darker"></input>
                 <button
                     disabled={words.length === 0}
                     onClick={() => palindromeChecker()}

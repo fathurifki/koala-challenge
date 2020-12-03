@@ -18,7 +18,7 @@ export const PalindromeController = ({ children }) => {
         const value = val.target.value
         const name = val.target.name
 
-        if (value.length > 0) {
+        if (value.length < 1) {
             setState((prevState) => ({
                 ...prevState,
                 result: null,

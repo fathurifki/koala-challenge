@@ -17,7 +17,7 @@ const CurrencyComponent = () => {
         <div className="flex flex-col justify-center p-4 mt-10 ">
             <span className="mb-2 text-lg font-medium">Input Number</span>
             <div className="flex flex-col">
-                <input value={convert(number)} type="text" onChange={(e) => handleInput(e)} name="number" className="shadow appearance-none border rounded py-2 px-3 text-grey-darker"></input>
+                <input autoComplete="off" value={convert(number)} type="text" onChange={(e) => handleInput(e)} name="number" className="shadow appearance-none border rounded py-2 px-3 text-grey-darker"></input>
                 <div className="text-center p-4 font-medium text-lg text-red-800">
                     {
                         showError && <p>{message}</p>
