@@ -58,4 +58,4 @@ return  result
 }
 
 ```
- You can check demo [here]([https://koala-challenge.vercel.app/palindrome](https://koala-challenge.vercel.app/palindrome))
+ You can check demo [here](https://koala-challenge.vercel.app/palindrome)
