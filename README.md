@@ -28,6 +28,7 @@ let  result  =  charArray.every((letter,  index)  =>  {
 
 2. Separate Number Logic
 
+```
 const  value  =  '1.500.210' //example 
 const  newNumber=  Number.parseFloat(value.split('.').join(""))
 
@@ -54,3 +55,7 @@ temp.forEach(val  =>  {
 })
 result  =  result  +  `sisa ${value},`
 return  result
+}
+
+```
+ You can check demo [here]([https://koala-challenge.vercel.app/palindrome](https://koala-challenge.vercel.app/palindrome))
