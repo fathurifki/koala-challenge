@@ -1,9 +1,13 @@
+/* eslint-disable use-isnan */
 /* eslint-disable react/prop-types */
 import React from 'react'
 
 const initialState = {
     number: "",
     result: "",
+    message: "",
+    showError: false,
+    disable: false,
     handleInput: () => { },
     splitNumber: () => { },
 }
@@ -19,11 +23,37 @@ export const CurrencyController = ({ children }) => {
         const value = val.target.value
         const name = val.target.name
 
+        const number = Number.parseFloat(value.split('.').join(""))
+
+        if (number < 99) {
+            setState((prevState) => ({
+                ...prevState,
+                message: 'Minimal angka 99',
+                showError: true,
+                disable: true
+            }))
+        } else if (number >= Math.pow(1 * 10, 9)) {
+            setState((prevState) => ({
+                ...prevState,
+                message: 'Max angka 1 milyar',
+                showError: true,
+                disable: true
+            }))
+        } else {
+            setState((prevState) => ({
+                ...prevState,
+                showError: false,
+                disable: false
+            }))
+        }
+
         setState((prevState) => ({
             ...prevState,
-            [name]: Number.parseFloat(value.split('.').join(""))
+            [name]: number
         }))
     }
+
+
 
     const splitNumber = () => {
         let temp = []
